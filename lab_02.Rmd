@@ -1,7 +1,7 @@
 ---
 title: "Lab 02"
-author: ""
-date: ""
+author: "Shannon Houser"
+date: "02-01-21"
 output: 
   html_document:
     toc: true
@@ -44,11 +44,15 @@ need to set the class attribute to `"POSIXct"`
 
 ```{r}
 z <- seq(0, 3600 * 10, by = 3600)
+attr(x = z, which = "class") <- "POSIXct"
+z
 ```
 
 What do you notice about the date-time? If you are unsure, check out
 [Unix Epoch](https://en.wikipedia.org/wiki/Unix_time). A time converter is
 available [here](https://www.epochconverter.com).
+
+They are 5 hours before and after midnight on New Years Day in 1969-1970. 
 
 
 
@@ -66,11 +70,25 @@ Complete the following without using any loops.
 
 1. Subset only the letters from `x`.
 
+```{r}
+x[x %in% letters]
+```
+
 2. Subset only the negative numbers from `x`.
+```{r}
+x[x<0]
+```
 
 3. Select the numbers divisible by 3 from `x`.
+```{r}
+x[which(as.numeric(x) %% 3 == 0)]
+```
 
 4. Remove all values with an even index from `x`.
+```{r}
+x[-seq(2, 50, by = 2)]
+```
+
 
 
 
